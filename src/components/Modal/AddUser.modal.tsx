@@ -6,10 +6,11 @@ import toast from 'react-hot-toast';
 interface EditUserProps {
     show: boolean;
     handleClose: () => void;
-    reload: () => void;
+    userData:any
+    setUserData: any
 }
 
-export default function AddUserModal({ show, handleClose, reload }: EditUserProps) {
+export default function AddUserModal({ show, handleClose, userData, setUserData }: EditUserProps) {
     const [formData, setFormData] = useState<any>();
 
 
@@ -29,17 +30,19 @@ export default function AddUserModal({ show, handleClose, reload }: EditUserProp
     }
 
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         if (!formData?.name || !formData?.email || !formData?.username || !formData?.phone) {
             toast.error("Name, Email, Phone and Ussername is required.")
             return
         }
-        await UserService.createUser(formData).then((res) => {
-            handleClose();
-            reload();
+        const payload = {
+            ...formData,
+            id: userData?.length + 1
+        }
 
-        })
+        userData.push(payload)
+        handleClose();
+       
     };
 
     return (
@@ -70,7 +73,7 @@ export default function AddUserModal({ show, handleClose, reload }: EditUserProp
 
                 <Form.Group className="mb-3">
                     <Form.Label>Company Name</Form.Label>
-                    <Form.Control name="name" value={formData?.company.name} onChange={handleCompanyNameChange} />
+                    <Form.Control name="name" value={formData?.company?.name} onChange={handleCompanyNameChange} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">

@@ -1,69 +1,92 @@
-# React + TypeScript + Vite
+# Recruiterflow-Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Bootstrap dashboard to view and manage user data using a mock API. Includes functionalities for viewing, adding, and deleting users (handled locally).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+###  Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (v16 or higher)
+- npm or yarn
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+###  Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Jiyaul123/Recruiterflow-Assignment.git
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Install dependencies**
+   npm install / yarn install
+   
+## Mock API Limitation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This project uses a **mock API** such as JSONPlaceholder for fetching user data. The `UserService.getAllUsers()` function makes a GET request to this public mock API.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Limitations:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+-   **GET (Read)**: Real API call — retrieves a static list of users from the mock API.
+    
+-   **POST (Add)** and **DELETE (Remove)**:
+    
+    -   These are **not sent to the server**.
+        
+    -   All changes (adding or deleting users) are handled **locally using React state**.
+        
+    -   **Refreshing the page** will reset all changes and reload the original data from the mock API.
+        
+
+### Add User
+
+-   Triggered via a modal.
+    
+-   Adds the new user to the `userData` array in memory.
+    
+
+### Delete User
+
+-   Prompts a confirmation modal.
+    
+-   Removes the user from `userData` in memory.
+    
+
+----------
+
+## Features
+
+-   View a list of users (name, email, phone, address, company, website)
+    
+-    Add user modal with form
+    
+-    Delete user with confirmation modal
+    
+-    Bootstrap styling for responsive layout
+    
+-   Framer Motion animations on card render
+    
+-    Modular components structure
+    
+
+----------
+
+## Animations
+
+Framer Motion is used to add smooth animation when rendering the list of user cards. Each card fades in and slides up slightly with a staggered delay for a polished look.
+
+----------
+
+##  Tech Stack
+
+-    React
+    
+-   React Bootstrap
+    
+-    TypeScript
+    
+-    CSS + Bootstrap utility classes
+    
+-    Framer Motion for animation
+    
+-    Axios (inside `UserService`) for API calls
+

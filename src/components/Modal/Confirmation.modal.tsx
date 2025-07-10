@@ -3,8 +3,9 @@ import { Button, Modal } from 'react-bootstrap'
 import { BsExclamationTriangle } from 'react-icons/bs'
 
 interface ConfirmationModalProps {
-    show: string,
+    show: number,
     handleClose: () => void
+    onClick: (id:number) => void
 }
 
 export default function ConfirmationModal(props: ConfirmationModalProps) {
@@ -25,7 +26,7 @@ export default function ConfirmationModal(props: ConfirmationModalProps) {
                     <div className='text-secondary'>This action cannot be undone</div>
                 </div>
                 <div className='d-flex flex-column gap-2 mt-4'>
-                <Button  variant='danger' className="w-100">Delete</Button>
+                <Button  variant='danger' className="w-100" onClick={() => props.onClick(props.show)}>Delete</Button>
                 <Button variant='outline-secondary' className="w-100" onClick={props.handleClose}>Cancel</Button>
                 </div>
             </Modal.Body>
