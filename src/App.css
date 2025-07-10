@@ -1,0 +1,70 @@
+.modern-card {
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.task-title {
+  font-weight: 600;
+  color: #1e1e2f;
+}
+
+.badge-pill {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 999px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.project-pill {
+  background-color: #fde68a;
+  color: #78350f;
+}
+
+.meta-pill {
+  background-color: #f4f4f6;
+  color: #6c6c80;
+}
+
+.company-pill {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.icon-button {
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon {
+  background-color: #e0f0ff;
+  color: #007bff;
+}
+
+.edit-icon:hover {
+  background-color: #cbe6ff;
+  color: #005ecb;
+}
+
+.delete-icon {
+  background-color: #ffe4e6;
+  color: #e3342f;
+}
+
+.delete-icon:hover {
+  background-color: #fecdd3;
+  color: #b91c1c;
+}
+
+.user-info div {
+  font-size: 14px;
+  color: #4a4a60;
+  margin-bottom: 4px;
+}
