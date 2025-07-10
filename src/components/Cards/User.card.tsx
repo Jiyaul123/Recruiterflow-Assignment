@@ -4,20 +4,17 @@ import { AiFillEdit } from 'react-icons/ai'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { FaRegTrashCan } from 'react-icons/fa6'
 import ConfirmationModal from '../Modal/Confirmation.modal'
-import EditUserModal from '../Modal/EditUser.modal'
 
 
 interface UserCardProps {
     data: any
     userData: any,
     setUserData: any
-    // reload: () => void
 }
 
 export default function UserCard(props: UserCardProps) {
 
     const [showConfirmatiomModal, setShowConfirmationModal] = useState<any | undefined>(undefined);
-    const [userIndex, setUserIndex] = useState<number>(-1);
 
 
     const handleDeleteUserDataLocally = (id: number) => {
@@ -51,9 +48,6 @@ export default function UserCard(props: UserCardProps) {
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <span className="badge-pill company-pill">Company: {props.data.company.name}</span>
                     <div className="d-flex gap-2">
-                        {/* <span className="icon-button edit-icon" title="Edit" onClick={() => setUserIndex(props.data.id)}>
-                            <AiFillEdit size={18} />
-                        </span> */}
                         <span className="icon-button delete-icon" title="Delete" onClick={() => setShowConfirmationModal(props.data.id)}>
                             <FaRegTrashCan size={18} />
                         </span>

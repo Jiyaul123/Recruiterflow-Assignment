@@ -10,7 +10,6 @@ import Users from './Users/Users';
 export default function ViewIndex() {
 
     const [userData, setUserData] = useState<any>();
-    const [showAddUserModal, setShowAddUserModal] = useState<boolean>(false)
 
     const getAllUsers = async () => {
         await UserService.getAllUsers().then((res) => {
