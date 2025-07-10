@@ -41,7 +41,7 @@ export default function UserCard(props: UserCardProps) {
                     <div><strong>Phone:</strong> {props.data.phone}</div>
                     <div><strong>Address:</strong> {props.data.address.suite}, {props.data.address.street}, {props.data.address.city}, {props.data.address.zipcode}</div>
                     <div>
-                        <a href={props.data.website} className="d-flex align-items-center gap-1">
+                        <a href={props.data.website} className="d-flex align-items-center gap-1" target='_blank'>
                             Visit Site
                             <FaExternalLinkAlt size={12} />
                         </a>
